@@ -48,7 +48,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "GET") {
         <header>
             <h1>Séances du cinéma <?= $cinema['DENOMINATION'] ?></h1>
             <h2><?= $cinema['ADRESSE'] ?></h2>
-            <?php if ($filmsUnplanned) : ?>
+            <?php if ($filmsUnplanned && $adminConnected) : ?>
                 <form action="editShowtime.php" method="get">
                     <fieldset>
                         <legend>Ajouter un film à la programmation</legend>
