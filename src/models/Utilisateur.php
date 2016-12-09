@@ -1,17 +1,20 @@
 <?php
+namespace Semeformation\Mvc\Cinema_crud\models;
 
+use Semeformation\Mvc\Cinema_crud\includes\DBFunctions;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+
 /**
  * Description of Utilisateur
  *
  * @author admin
  */
-class Utilisateur extends \Semeformation\Mvc\Cinema_crud\includes\DBFunctions {
+class Utilisateur extends DBFunctions {
     
     public function verifyUserCredentials($email, $passwordSaisi) {
         // extraction du mdp de l'utilisateur
