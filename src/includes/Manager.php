@@ -8,4 +8,5 @@ use Monolog\Handler\StreamHandler;
 $logger = new Logger("Functions");
 $logger->pushHandler(new StreamHandler(dirname(__DIR__) . './logs/functions.log'));
 $fctManager = new DBFunctions($logger);
+$utilisateursMgr = new Utilisateur($logger);
 

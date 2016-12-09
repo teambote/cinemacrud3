@@ -11,7 +11,7 @@ use Exception;
 class DBFunctions {
 
     // logger
-    private $logger;
+    protected $logger;
 
     public function __construct(LoggerInterface $logger = null) {
         $this->logger = $logger;
@@ -616,7 +616,7 @@ class DBFunctions {
      * @param boolean $estVisible (visualisation du résultat)
      * @return array[][] ou null
      */
-    private function extraireNxN($unSQLSelect, $parametres = null,
+    protected function extraireNxN($unSQLSelect, $parametres = null,
             $estVisible = false) {
         // tableau des résultats
         $tableau = array();
@@ -650,7 +650,7 @@ class DBFunctions {
      * @param boolean $estVisible (visualisation du résultat)
      * @return array[] ou null
      */
-    private function extraire1xN($unSQLSelect, $parametres = null,
+    protected function extraire1xN($unSQLSelect, $parametres = null,
             $estVisible = false) {
         $result = $this->extraireNxN($unSQLSelect, $parametres, false);
         if (isset($result[0])) {
