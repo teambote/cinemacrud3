@@ -20,7 +20,7 @@ and open the template in the editor.
             </tr>
             <?php
             // on récupère la liste des films préférés grâce à l'utilisateur identifié
-            $films = $filmMgr->getFavoriteMoviesFromUser($utilisateur['userID']);
+            $films = $preferesMgr->getFavoriteMoviesFromUser($utilisateur['userID']);
             // si des films ont été trouvés
             if ($films) {
                 // boucle de création du tableau
