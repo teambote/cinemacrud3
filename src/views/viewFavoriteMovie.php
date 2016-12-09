@@ -15,7 +15,7 @@
                         <?php
                         // si c'est une création, on crée la liste des films dynamiquement
                         if ($isItACreation) {
-                            $films = $fctManager->getMoviesNonAlreadyMarkedAsFavorite($_SESSION['userID']);
+                            $films = $filmMgr->getMoviesNonAlreadyMarkedAsFavorite($_SESSION['userID']);
                             // s'il y a des résultats
                             if ($films) {
                                 foreach ($films as $film) {
