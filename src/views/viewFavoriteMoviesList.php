@@ -17,7 +17,7 @@ and open the template in the editor.
                 <th>Titre</th>
                 <th>Commentaire</th>
                 <th colspan="2">Action</th>
-            </tr>
+            </tr> 
             <?php
             // on récupère la liste des films préférés grâce à l'utilisateur identifié
             $films = $preferesMgr->getFavoriteMoviesFromUser($utilisateur['userID']);
