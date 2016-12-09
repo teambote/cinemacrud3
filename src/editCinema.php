@@ -36,12 +36,12 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
         // et que nous ne sommes pas en train de modifier un cinéma
         if ($sanEntries['modificationInProgress'] == NULL) {
             // on ajoute le cinéma
-            $fctManager->insertNewCinema($sanEntries['denomination'], $sanEntries['adresse']);
+            $cinemaMgr->insertNewCinema($sanEntries['denomination'], $sanEntries['adresse']);
         }
         // sinon, nous sommes dans le cas d'une modification
         else {
             // mise à jour du cinéma
-            $fctManager->updateCinema($sanEntries['cinemaID'], $sanEntries['denomination'], $sanEntries['adresse']);
+            $cinemaMgr->updateCinema($sanEntries['cinemaID'], $sanEntries['denomination'], $sanEntries['adresse']);
         }
         // on revient à la liste des cinémas
         header('Location: cinemasList.php');
@@ -53,7 +53,7 @@ elseif (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "GET") {
     $sanEntries = filter_input_array(INPUT_GET, ['cinemaID' => FILTER_SANITIZE_NUMBER_INT]);
     if ($sanEntries && $sanEntries['cinemaID'] !== NULL && $sanEntries['cinemaID'] !== '') {
         // on récupère les informations manquantes 
-        $cinema = $fctManager->getCinemaInformationsByID($sanEntries['cinemaID']);
+        $cinema = $cinemaMgr->getCinemaInformationsByID($sanEntries['cinemaID']);
     }
     // sinon, c'est une création
     else {

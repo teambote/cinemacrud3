@@ -2,7 +2,7 @@
 
 namespace Semeformation\Mvc\Cinema_crud\includes;
 
-use includes\DBFactory;
+use Semeformation\Mvc\Cinema_crud\includes\DBFactory;
 use Semeformation\Mvc\Cinema_crud\includes\Utils;
 use Psr\Log\LoggerInterface;
 use PDO;

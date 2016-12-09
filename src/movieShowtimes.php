@@ -22,9 +22,9 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "GET") {
         // on récupère l'identifiant du cinéma
         $filmID = $sanitizedEntries['filmID'];
         // puis on récupère les informations du film en question
-        $film = $fctManager->getMovieInformationsByID($filmID);
+        $film = $filmMgr->getMovieInformationsByID($filmID);
         // on récupère les cinémas qui ne projettent pas encore le film
-        $cinemasUnplanned = $fctManager->getNonPlannedCinemas($filmID);
+        $cinemasUnplanned = $seanceMgr->getNonPlannedCinemas($filmID);
     }
     // sinon, on retourne à l'accueil
     else {

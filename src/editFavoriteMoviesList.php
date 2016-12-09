@@ -12,7 +12,7 @@ if (!array_key_exists("user", $_SESSION)) {
 }
 // l'utilisateur est loggué
 else {
-    $utilisateur = $fctManager->getCompleteUsernameByEmailAddress($_SESSION['user']);
+    $utilisateur = $utilisateursMgr->getCompleteUsernameByEmailAddress($_SESSION['user']);
 }
 require 'views/viewFavoriteMoviesList.php';
 ?>

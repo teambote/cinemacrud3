@@ -22,7 +22,7 @@ if (filter_input(INPUT_SERVER,
         'filmID' => FILTER_SANITIZE_NUMBER_INT]);
 
     // suppression de la préférence de film
-    $fctManager->deleteFavoriteMovie($sanitizedEntries['userID'],
+    $preferesMgr->deleteFavoriteMovie($sanitizedEntries['userID'],
             $sanitizedEntries['filmID']);
 }
 // redirection vers la liste des préférences de films

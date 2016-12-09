@@ -43,14 +43,14 @@ if (filter_input(INPUT_SERVER,
             // et que nous ne sommes pas en train de modifier une préférence
             if ($sanitizedEntries['modificationInProgress'] == NULL) {
                 // on ajoute la préférence de l'utilisateur
-                $fctManager->insertNewFavoriteMovie($sanitizedEntries['userID'],
+                $preferesMgr->insertNewFavoriteMovie($sanitizedEntries['userID'],
                         $sanitizedEntries['filmID'],
                         $sanitizedEntries['comment']);
             }
             // sinon, nous sommes dans le cas d'une modification
             else {
                 // mise à jour de la préférence
-                $fctManager->updateFavoriteMovie($sanitizedEntries['userID'],
+                $preferesMgr->updateFavoriteMovie($sanitizedEntries['userID'],
                         $sanitizedEntries['filmID'],
                         $sanitizedEntries['comment']);
             }
@@ -83,7 +83,7 @@ if (filter_input(INPUT_SERVER,
 
     if ($sanitizedEntries && $sanitizedEntries['filmID'] !== NULL && $sanitizedEntries['filmID'] !== '' && $sanitizedEntries['userID'] !== NULL && $sanitizedEntries['userID'] !== '') {
         // on récupère les informations manquantes (le commentaire afférent)
-        $preference = $fctManager->getFavoriteMovieInformations($sanitizedEntries['userID'],
+        $preference = $preferesMgr->getFavoriteMovieInformations($sanitizedEntries['userID'],
                 $sanitizedEntries['filmID']);
         // sinon, c'est une création
     } else {
