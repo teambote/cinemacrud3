@@ -15,7 +15,8 @@
             </tr>
             <?php
             // on récupère la liste des cinémas ainsi que leurs informations
-            $cinemas = $cinemaMgr->getCinemasList();
+            //$cinemas = $cinemaMgr->getCinemasList();
+            $cinemas = $managers["cinemasMgr"]->getCinemasList();
             // boucle de construction de la liste des cinémas
             foreach ($cinemas as $cinema) {
                 ?>
