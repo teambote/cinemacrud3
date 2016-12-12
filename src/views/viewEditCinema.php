@@ -23,7 +23,10 @@
             }
             ?>
             <input type="submit" name="saveEntry" value="Sauvegarder"/>
-            <input type="submit" name="backToList" value="Retour à la liste"/>
+            
+        </form>
+        <form method="POST" action="cinemasList.php">
+          <input type="submit" name="backToList" value="Retour à la liste"/>
         </form>
     </body>
 </html>

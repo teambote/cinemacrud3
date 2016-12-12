@@ -15,17 +15,19 @@ $logger = new Logger("Functions");
 $logger->pushHandler(new StreamHandler(dirname(__DIR__) . './logs/functions.log'));
 $fctManager = new DBFunctions($logger);
 
+/*
 $utilisateursMgr = new Utilisateur($logger);
 $filmMgr = new Film($logger);
 $preferesMgr = new Prefere($logger);
 $cinemaMgr = new Cinema($logger);
 $seanceMgr = new Seance($logger);
+ * 
+ */
 
-/*
+
 $managers = ['utilisateursMgr'=> new Utilisateur($logger),
  'cinemasMgr'=> new Cinema($logger),
  'seancesMgr'=> new Seance($logger),
  'preferesMgr'=> new Prefere($logger),
  'filmsMgr'=> new Film($logger)];
 
-*/

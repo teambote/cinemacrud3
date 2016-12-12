@@ -11,7 +11,7 @@
             <label>Titre :</label>
             <input name="titre" type="text" value="<?= $film['TITRE'] ?>" required/>
             <label>Titre original :</label>
-            <input name="titreOriginal" type="text" value="<?= $film['TITREORIGINAL'] ?>" required/>
+            <input name="titreOriginal" type="text" value="<?= $film['TITREORIGINAL'] ?>" />
             <br/>
             <input type="hidden" value="<?= $film['FILMID'] ?>" name="filmID"/>
             <?php
@@ -23,7 +23,10 @@
             }
             ?>
             <input type="submit" name="saveEntry" value="Sauvegarder"/>
-            <input type="submit" name="backToList" value="Retour à la liste"/>
         </form>
+        <form method="POST" action="moviesList.php">
+          <input type="submit" name="backToList" value="Retour à la liste"/>
+        </form>
+
     </body>
 </html>

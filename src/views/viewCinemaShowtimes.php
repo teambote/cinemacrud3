@@ -51,8 +51,7 @@
                         </tr>
                         <?php
                         // on récupère pour chaque film de ce cinéma, la liste des séances
-                        $seances = $seanceMgr->getMovieShowtimes($cinemaID,
-                                $film['FILMID']);
+                        $seances = $seanceMgr->getMovieShowtimes($cinemaID, $film['FILMID']);
                         // boucle sur les séances
                         foreach ($seances as $seance) {
                             /*
@@ -63,8 +62,7 @@
                             // date du jour de projection de la séance
                             $jour = new DateTime($seance['HEUREDEBUT']);
                             // On convertit pour un affichage en français
-                            $jourConverti = utf8_encode(strftime('%d %B %Y',
-                                            $jour->getTimestamp()));
+                            $jourConverti = utf8_encode(strftime('%d %B %Y', $jour->getTimestamp()));
 
                             $heureDebut = (new DateTime($seance['HEUREDEBUT']))->format('H\hi');
                             $heureFin = (new DateTime($seance['HEUREFIN']))->format('H\hi');
@@ -74,7 +72,7 @@
                                 <td><?= $heureDebut ?></td>
                                 <td><?= $heureFin ?></td>
                                 <td><?= $seance['VERSION'] ?></td>
-                                <?php if ($adminConnected): ?>
+            <?php if ($adminConnected): ?>
                                     <td>
                                         <form name="modifyMovieShowtime" action="editShowtime.php" method="GET">
                                             <input type="hidden" name="cinemaID" value="<?= $cinemaID ?>"/>
@@ -97,13 +95,13 @@
                                             <input name="from" type="hidden" value="<?= $_SERVER['SCRIPT_NAME'] ?>">
                                         </form>
                                     </td>
-                                <?php endif; ?>
+            <?php endif; ?>
                             </tr>
 
-                            <?php
-                        }
-                        if ($adminConnected):
-                            ?>
+            <?php
+        }
+        if ($adminConnected):
+            ?>
                             <tr class="new">
                                 <td colspan="6">
                                     <form action="editShowtime.php" method="get">
@@ -114,18 +112,24 @@
                                     </form>
                                 </td>
                             </tr>
-                        <?php endif;
-                        ?>
+        <?php endif;
+        ?>
                     </table>
                     <br>
-                    <?php
-                } // fin de la boucle de parcours des films
-            } // fin du if au moins un film
-            ?>
+        <?php
+    } // fin de la boucle de parcours des films
+} // fin du if au moins un film
+?>
         </ul>
         <br>
+        <!--
         <form action = "cinemasList.php">
             <input type = "submit" value = "Retour à la liste des cinémas"/>
+        </form>
+        -->
+        <form name="cinemasList" method="GET"
+              action="index.php"> <input name="action" type="hidden" value="cinemasList"/>
+            <input type="submit" value="Retour à la liste des cinémas"/>
         </form>
     </body>
 </html>

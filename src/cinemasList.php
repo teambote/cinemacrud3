@@ -3,6 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 require_once __DIR__ . './includes/Manager.php';
 
+/*
 $isUserAdmin = false;
 
 session_start();
@@ -13,3 +14,5 @@ if (array_key_exists("user", $_SESSION) and $_SESSION['user'] == 'admin@adm.adm'
 
 require 'views/viewCinemasList.php';
 ?>
+ 
+ */
