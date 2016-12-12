@@ -32,11 +32,11 @@ function home($managers) {
                 'password' => FILTER_DEFAULT]);
             try {
                 // On vérifie l'existence de l'utilisateur
-                $utilisateursMgr->verifyUserCredentials($sanitizedEntries['email'], $sanitizedEntries['password']);
+                $managers["utilisateursMgr"]->verifyUserCredentials($sanitizedEntries['email'], $sanitizedEntries['password']);
 
                 // on enregistre l'utilisateur
                 $_SESSION['user'] = $sanitizedEntries['email'];
-                $_SESSION['userID'] = $utilisateursMgr->getUserIDByEmailAddress($_SESSION['user']);
+                $_SESSION['userID'] = $managers["utilisateursMgr"]->getUserIDByEmailAddress($_SESSION['user']);
                 // on redirige vers la page d'édition des films préférés
                 header("Location: editFavoriteMoviesList.php");
                 exit;
