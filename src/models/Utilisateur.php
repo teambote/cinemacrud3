@@ -7,7 +7,7 @@ use Semeformation\Mvc\Cinema_crud\includes\DBFunctions;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+use Exception;
 
 /**
  * Description of Utilisateur

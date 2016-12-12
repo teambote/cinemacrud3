@@ -36,6 +36,7 @@ if (array_key_exists("user", $_SESSION)) {
         } catch (Exception $ex) {
             $areCredentialsOK = false;
             $logger->error($ex->getMessage());
+            
         }
     }
 }
