@@ -10,9 +10,10 @@
             <h1>Séances du film <?= $film['TITRE'] ?></h1>
             <h2><?= $film['TITREORIGINAL'] ?></h2>
             <?php if ($cinemasUnplanned && $adminConnected) : ?>
-                <form action="editShowtime.php" method="get">
+                <form action="index.php" method="get">
                     <fieldset>
                         <legend>Programmer le film dans un cinéma</legend>
+                        <input name="action" type="hidden" value="editShowTime">
                         <input name="filmID" type="hidden" value="<?= $filmID ?>">
                         <select name="cinemaID">
                             <?php
@@ -50,8 +51,7 @@
                         </tr>
                         <?php
                         // on récupère pour chaque cinéma de ce film, la liste des séances
-                        $seances = $managers["seancesMgr"]->getMovieShowtimes($cinema['CINEMAID'],
-                                $filmID);
+                        $seances = $managers["seancesMgr"]->getMovieShowtimes($cinema['CINEMAID'], $filmID);
                         // boucle sur les séances
                         foreach ($seances as $seance) {
                             /*
@@ -62,8 +62,7 @@
                             // date du jour de projection de la séance
                             $jour = new DateTime($seance['HEUREDEBUT']);
                             // On convertit pour un affichage en français
-                            $jourConverti = utf8_encode(strftime('%d %B %Y',
-                                            $jour->getTimestamp()));
+                            $jourConverti = utf8_encode(strftime('%d %B %Y', $jour->getTimestamp()));
 
                             $heureDebut = (new DateTime($seance['HEUREDEBUT']))->format('H\hi');
                             $heureFin = (new DateTime($seance['HEUREFIN']))->format('H\hi');
@@ -75,7 +74,8 @@
                                 <td><?= $seance['VERSION'] ?></td>
                                 <?php if ($adminConnected): ?>
                                     <td>
-                                        <form name="modifyMovieShowtime" action="editShowtime.php" method="GET">
+                                        <form name="modifyMovieShowtime" action="index.php" method="GET">
+                                            <input type="hidden" name="action" value="editShowTime"/>
                                             <input type="hidden" name="cinemaID" value="<?= $cinema['CINEMAID'] ?>"/>
                                             <input type="hidden" name="filmID" value="<?= $filmID ?>"/>
                                             <input type="hidden" name="heureDebut" value="<?= $seance['HEUREDEBUT'] ?>"/>
@@ -86,7 +86,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form name="deleteMovieShowtime" action="deleteShowtime.php" method="POST">
+                                        <form name="deleteMovieShowtime" action="index.php?action=deleteShowtime" method="POST">
                                             <input type="hidden" name="cinemaID" value="<?= $cinema['CINEMAID'] ?>"/>
                                             <input type="hidden" name="filmID" value="<?= $filmID ?>"/>
                                             <input type="hidden" name="heureDebut" value="<?= $seance['HEUREDEBUT'] ?>"/>
@@ -122,7 +122,8 @@
             endif;
             ?>
         </ul>
-        <form action="moviesList.php">
+        <form name="moviesList" method="GET" action="index.php">
+            <input name="action" type="hidden" value="moviesList"/>
             <input type="submit" value="Retour à la liste des films"/>
         </form>
     </body>

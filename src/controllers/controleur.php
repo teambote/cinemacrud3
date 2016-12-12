@@ -37,7 +37,7 @@ function home($managers) {
                 $_SESSION['user'] = $sanitizedEntries['email'];
                 $_SESSION['userID'] = $managers["utilisateursMgr"]->getUserIDByEmailAddress($_SESSION['user']);
                 // on redirige vers la page d'édition des films préférés
-                header("Location: editFavoriteMoviesList.php");
+                header("Location: index.php?action=editFavoriteMoviesList");
                 exit;
             } catch (Exception $ex) {
                 $areCredentialsOK = false;
@@ -220,10 +220,10 @@ function editShowtime($managers) {
             }
             // en fonction d'où je viens, je redirige
             if (strstr($sanitizedEntries['from'], 'movie')) {
-                header('Location: movieShowtimes.php?filmID=' . $sanitizedEntries['filmID']);
+                header('Location: index.php?action=movieShowTimes&filmID=' . $sanitizedEntries['filmID']);
                 exit;
             } else {
-                header('Location: cinemaShowtimes.php?cinemaID=' . $sanitizedEntries['cinemaID']);
+                header('Location: index.php?action=cinemaShowTimes&cinemaID=' . $sanitizedEntries['cinemaID']);
                 exit;
             }
         }
@@ -261,7 +261,7 @@ function editMovie($managers) {
         // si l'action demandée est retour en arrière
         if ($sanEntries['backToList'] !== NULL) {
             // on redirige vers la page des films
-            header('Location: moviesList.php');
+            header('Location: index.php?action=moviesList');
             exit;
         }
         // sinon (l'action demandée est la sauvegarde d'un film)
@@ -278,7 +278,7 @@ function editMovie($managers) {
                 $managers["filmsMgr"]->updateMovie($sanEntries['filmID'], $sanEntries['titre'], $sanEntries['titreOriginal']);
             }
             // on revient à la liste des films
-            header('Location: moviesList.php');
+            header('Location: index.php?action=moviesList');
             exit;
         }
     }// si la page est chargée avec $_GET
@@ -345,7 +345,7 @@ function editFavoriteMovie($managers) {
         // si l'action demandée est retour en arrière
         if ($sanitizedEntries['backToList'] !== NULL) {
             // on redirige vers la page d'édition des films favoris
-            header('Location: editFavoriteMoviesList.php');
+            header('Location: index.php?action=editFavoriteMoviesList');
             exit;
         }
         // sinon (l'action demandée est la sauvegarde d'un favori)
@@ -364,7 +364,7 @@ function editFavoriteMovie($managers) {
                     $managers["preferesMgr"]->updateFavoriteMovie($sanitizedEntries['userID'], $sanitizedEntries['filmID'], $sanitizedEntries['comment']);
                 }
                 // on revient à la liste des préférences
-                header('Location: editFavoriteMoviesList.php');
+                header('Location: index.php?action=editFavoriteMoviesList');
                 exit;
             }
             // sinon (un film n'a pas été sélectionné)
@@ -432,7 +432,7 @@ function editCinema($managers) {
         // si l'action demandée est retour en arrière
         if ($sanEntries['backToList'] !== NULL) {
             // on redirige vers la page des cinémas
-            header('Location: cinemasList.php');
+            header('Location: index.php?action=cinemasList');
             exit;
         }
         // sinon (l'action demandée est la sauvegarde d'un cinéma)
@@ -449,7 +449,7 @@ function editCinema($managers) {
                 $managers["cinemasMgr"]->updateCinema($sanEntries['cinemaID'], $sanEntries['denomination'], $sanEntries['adresse']);
             }
             // on revient à la liste des cinémas
-            header('Location: cinemasList.php');
+            header('Location: index.php?action=cinemasList');
             exit;
         }
     }// si la page est chargée avec $_GET
@@ -531,7 +531,7 @@ function deleteMovie($managers) {
         $managers["filmsMgr"]->deleteMovie($sanitizedEntries['filmID']);
     }
 // redirection vers la liste des films
-    header("Location: moviesList.php");
+    header("Location: index.php?action=moviesList");
     exit;
 }
 
@@ -555,7 +555,7 @@ function deleteFavoriteMovie($managers) {
         $managers["preferesMgr"]->deleteFavoriteMovie($sanitizedEntries['userID'], $sanitizedEntries['filmID']);
     }
 // redirection vers la liste des préférences de films
-    header("Location: editFavoriteMoviesList.php");
+    header("Location: index.php?action=editFavoriteMoviesList");
     exit;
 }
 
@@ -578,7 +578,7 @@ function deleteCinema($managers) {
         $managers["cinemasMgr"]->deleteCinema($sanitizedEntries['cinemaID']);
     }
 // redirection vers la liste des cinémas
-    header("Location: cinemasList.php");
+    header("Location: index.php?action=cinemasList");
     exit;
 }
 
@@ -648,7 +648,7 @@ function createNewUser($managers) {
             $_SESSION['user'] = $sanitizedEntries['email'];
             $_SESSION['userID'] = $managers["utilisateursMgr"]->getUserIDByEmailAddress($_SESSION['user']);
             // on redirige vers la page d'édition des films préférés
-            header("Location: editFavoriteMoviesList.php");
+            header("Location: index.php?action=editFavoriteMoviesList");
             exit;
         }
     }

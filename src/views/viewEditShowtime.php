@@ -54,12 +54,14 @@
             <button type="submit">Sauvegarder</button>
         </form>
         <?php if ($fromCinema): ?>
-            <form action="cinemaShowtimes.php">
+            <form method="GET" action="index.php">
+                <input name="action" type="hidden" value="cinemaShowTimes">
                 <input name="cinemaID" type="hidden" value="<?= $cinemaID ?>">
                 <button type="submit">Retour aux séances du cinéma</button>
             </form>
         <?php else: ?>
-            <form action="movieShowtimes.php">
+            <form method="GET" action="index.php">
+                <input name="action" type="hidden" value="movieShowTimes">
                 <input name="filmID" type="hidden" value="<?= $filmID ?>">
                 <button type="submit">Retour aux séances</button>
             </form>
