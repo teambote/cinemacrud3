@@ -127,8 +127,8 @@
             <input type = "submit" value = "Retour à la liste des cinémas"/>
         </form>
         -->
-        <form name="cinemasList" method="GET"
-              action="index.php"> <input name="action" type="hidden" value="cinemasList"/>
+        <form name="cinemasList" method="GET" action="index.php">
+            <input name="action" type="hidden" value="cinemasList"/>
             <input type="submit" value="Retour à la liste des cinémas"/>
         </form>
     </body>
