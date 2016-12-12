@@ -32,7 +32,7 @@ if (filter_input(INPUT_SERVER,
     // si l'action demandée est retour en arrière
     if ($sanitizedEntries['backToList'] !== NULL) {
         // on redirige vers la page d'édition des films favoris
-        header('Location: editFavoriteMoviesList.php');
+        header('Location: index.php?action=editFavoriteMoviesList');
         exit;
     }
     // sinon (l'action demandée est la sauvegarde d'un favori)
@@ -55,7 +55,7 @@ if (filter_input(INPUT_SERVER,
                         $sanitizedEntries['comment']);
             }
             // on revient à la liste des préférences
-            header('Location: editFavoriteMoviesList.php');
+            header('Location: index.php?action=editFavoriteMoviesList');
             exit;
         }
         // sinon (un film n'a pas été sélectionné)

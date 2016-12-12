@@ -22,6 +22,6 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
     $managers["cinemasMgr"]->deleteCinema($sanitizedEntries['cinemaID']);
 }
 // redirection vers la liste des cinémas
-header("Location: cinemasList.php");
+header("Location: index.php?action=cinemasList");
 exit;
 

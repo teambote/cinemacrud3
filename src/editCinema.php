@@ -27,7 +27,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
     // si l'action demandée est retour en arrière
     if ($sanEntries['backToList'] !== NULL) {
         // on redirige vers la page des cinémas
-        header('Location: cinemasList.php');
+        header('Location: index.php?action=cinemasList');
         exit;
     }
     // sinon (l'action demandée est la sauvegarde d'un cinéma)
@@ -44,7 +44,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
             $managers["cinemasMgr"]->updateCinema($sanEntries['cinemaID'], $sanEntries['denomination'], $sanEntries['adresse']);
         }
         // on revient à la liste des cinémas
-        header('Location: cinemasList.php');
+        header('Location: index.php?action=cinemasList');
         exit;
     }
 }// si la page est chargée avec $_GET

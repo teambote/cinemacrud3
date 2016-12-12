@@ -22,6 +22,6 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
     $managers["filmsMgr"]->deleteMovie($sanitizedEntries['filmID']);
 }
 // redirection vers la liste des films
-header("Location: moviesList.php");
+header("Location: index.php?action=moviesList");
 exit;
 

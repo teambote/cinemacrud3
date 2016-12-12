@@ -26,6 +26,6 @@ if (filter_input(INPUT_SERVER,
             $sanitizedEntries['filmID']);
 }
 // redirection vers la liste des préférences de films
-header("Location: editFavoriteMoviesList.php");
+header("Location: index.php?action=editFavoriteMoviesList");
 exit;
 

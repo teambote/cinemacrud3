@@ -27,7 +27,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
     // si l'action demandée est retour en arrière
     if ($sanEntries['backToList'] !== NULL) {
         // on redirige vers la page des films
-        header('Location: moviesList.php');
+        header('Location: index.php?action=moviesList');
         exit;
     }
     // sinon (l'action demandée est la sauvegarde d'un film)
@@ -44,7 +44,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
             $managers["filmsMgr"]->updateMovie($sanEntries['filmID'], $sanEntries['titre'], $sanEntries['titreOriginal']);
         }
         // on revient à la liste des films
-        header('Location: moviesList.php');
+        header('Location: index.php?action=moviesList');
         exit;
     }
 }// si la page est chargée avec $_GET
