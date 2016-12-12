@@ -36,12 +36,12 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
         // et que nous ne sommes pas en train de modifier un film
         if ($sanEntries['modificationInProgress'] == NULL) {
             // on ajoute le film
-            $filmMgr->insertNewMovie($sanEntries['titre'], $sanEntries['titreOriginal']);
+            $managers["filmsMgr"]->insertNewMovie($sanEntries['titre'], $sanEntries['titreOriginal']);
         }
         // sinon, nous sommes dans le cas d'une modification
         else {
             // mise à jour du film
-            $filmMgr->updateMovie($sanEntries['filmID'], $sanEntries['titre'], $sanEntries['titreOriginal']);
+            $managers["filmsMgr"]->updateMovie($sanEntries['filmID'], $sanEntries['titre'], $sanEntries['titreOriginal']);
         }
         // on revient à la liste des films
         header('Location: moviesList.php');
@@ -53,7 +53,7 @@ elseif (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "GET") {
     $sanEntries = filter_input_array(INPUT_GET, ['filmID' => FILTER_SANITIZE_NUMBER_INT]);
     if ($sanEntries && $sanEntries['filmID'] !== NULL && $sanEntries['filmID'] !== '') {
         // on récupère les informations manquantes 
-        $film = $filmMgr->getMovieInformationsByID($sanEntries['filmID']);
+        $film = $managers["filmsMgr"]->getMovieInformationsByID($sanEntries['filmID']);
     }
     // sinon, c'est une création
     else {

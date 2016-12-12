@@ -19,7 +19,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
     $sanitizedEntries = filter_input_array(INPUT_POST, ['cinemaID' => FILTER_SANITIZE_NUMBER_INT]);
 
     // suppression de la préférence de film
-    $cinemaMgr->deleteCinema($sanitizedEntries['cinemaID']);
+    $managers["cinemasMgr"]->deleteCinema($sanitizedEntries['cinemaID']);
 }
 // redirection vers la liste des cinémas
 header("Location: cinemasList.php");

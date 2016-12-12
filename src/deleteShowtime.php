@@ -26,7 +26,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === "POST") {
     ]);
 
     // suppression de la séance
-    $seanceMgr->deleteShowtime($sanitizedEntries['cinemaID'],
+    $managers["seancesMgr"]->deleteShowtime($sanitizedEntries['cinemaID'],
             $sanitizedEntries['filmID'], $sanitizedEntries['heureDebut'],
             $sanitizedEntries['heureFin']
     );

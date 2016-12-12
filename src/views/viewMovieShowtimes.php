@@ -32,7 +32,7 @@
         <ul>
             <?php
             // on récupère la liste des cinémas de ce film
-            $cinemas = $seanceMgr->getMovieCinemasByMovieID($filmID);
+            $cinemas = $managers["seancesMgr"]->getMovieCinemasByMovieID($filmID);
             if (count($cinemas) > 0):
                 // on boucle sur les résultats
                 foreach ($cinemas as $cinema) {
@@ -50,7 +50,7 @@
                         </tr>
                         <?php
                         // on récupère pour chaque cinéma de ce film, la liste des séances
-                        $seances = $seanceMgr->getMovieShowtimes($cinema['CINEMAID'],
+                        $seances = $managers["seancesMgr"]->getMovieShowtimes($cinema['CINEMAID'],
                                 $filmID);
                         // boucle sur les séances
                         foreach ($seances as $seance) {
