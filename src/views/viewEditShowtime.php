@@ -55,13 +55,13 @@
         </form>
         <?php if ($fromCinema): ?>
             <form method="GET" action="index.php">
-                <input name="action" type="hidden" value="cinemaShowTimes">
+                <input name="action" type="hidden" value="cinemaShowtimes">
                 <input name="cinemaID" type="hidden" value="<?= $cinemaID ?>">
                 <button type="submit">Retour aux séances du cinéma</button>
             </form>
         <?php else: ?>
             <form method="GET" action="index.php">
-                <input name="action" type="hidden" value="movieShowTimes">
+                <input name="action" type="hidden" value="movieShowtimes">
                 <input name="filmID" type="hidden" value="<?= $filmID ?>">
                 <button type="submit">Retour aux séances</button>
             </form>

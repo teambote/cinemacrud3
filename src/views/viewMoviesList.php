@@ -24,7 +24,7 @@
                     <td><?= $film['TITREORIGINAL'] ?></td>
                     <td>
                         <form name="movieShowtimes" action="index.php" method="GET">
-                            <input name="action" type="hidden" value="movieShowTimes"/>
+                            <input name="action" type="hidden" value="movieShowtimes"/>
                             <input name="filmID" type="hidden" value="<?= $film['FILMID'] ?>"/>
                             <input type="submit" value="Consulter les séances"/>
                         </form>

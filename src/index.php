@@ -25,13 +25,13 @@ if ($sanitizedEntries && $sanitizedEntries['action'] !== '') {
             // Activation de la route moviesList
             moviesList($managers);
             break;
-        case "movieShowTimes":
-            // Activation de la route movieShowTimes
-            movieShowTimes($managers);
+        case "movieShowtimes":
+            // Activation de la route movieShowtimes
+            movieShowtimes($managers);
             break;
-        case "editShowTime":
-            // Activation de la route editShowTime
-            editShowTime($managers);
+        case "editShowtime":
+            // Activation de la route editShowtime
+            editShowtime($managers);
             break;
         case "editMovie":
             // Activation de la route editMovie
@@ -69,9 +69,9 @@ if ($sanitizedEntries && $sanitizedEntries['action'] !== '') {
             // Activation de la route CreateNewUser
             CreateNewUser($managers);
             break;
-        case "cinemaShowTimes":
-            // Activation de la route cinemaShowTimes
-            cinemaShowTimes($managers);
+        case "cinemaShowtimes":
+            // Activation de la route cinemaShowtimes
+            cinemaShowtimes($managers);
             break;
         default:
             // Activation de la route par défaut (page d'accueil)

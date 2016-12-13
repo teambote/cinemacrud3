@@ -220,10 +220,10 @@ function editShowtime($managers) {
             }
             // en fonction d'où je viens, je redirige
             if (strstr($sanitizedEntries['from'], 'movie')) {
-                header('Location: index.php?action=movieShowTimes&filmID=' . $sanitizedEntries['filmID']);
+                header('Location: index.php?action=movieShowtimes&filmID=' . $sanitizedEntries['filmID']);
                 exit;
             } else {
-                header('Location: index.php?action=cinemaShowTimes&cinemaID=' . $sanitizedEntries['cinemaID']);
+                header('Location: index.php?action=cinemaShowtimes&cinemaID=' . $sanitizedEntries['cinemaID']);
                 exit;
             }
         }
@@ -499,10 +499,10 @@ function deleteShowtime($managers) {
         );
         // en fonction d'où je viens, je redirige
         if (strstr($sanitizedEntries['from'], 'movie')) {
-            header('Location: movieShowtimes.php?filmID=' . $sanitizedEntries['filmID']);
+            header('Location: index.php?action=movieShowtimes&filmID=' . $sanitizedEntries['filmID']);
             exit;
         } else {
-            header('Location: cinemaShowtimes.php?cinemaID=' . $sanitizedEntries['cinemaID']);
+            header('Location: index.php?action=cinemaShowtimes&cinemaID=' . $sanitizedEntries['cinemaID']);
             exit;
         }
     } else {

@@ -13,7 +13,7 @@
                 <form action="index.php" method="get">
                     <fieldset>
                         <legend>Programmer le film dans un cinéma</legend>
-                        <input name="action" type="hidden" value="editShowTime">
+                        <input name="action" type="hidden" value="editShowtime">
                         <input name="filmID" type="hidden" value="<?= $filmID ?>">
                         <select name="cinemaID">
                             <?php
@@ -22,7 +22,7 @@
                                 <option value="<?= $cinema['cinemaID'] ?>"><?= $cinema['denomination'] ?></option>
                                 <?php
                             endforeach;
-                            ?>    
+                            ?>
                         </select>
                         <input name = "from" type = "hidden" value = "<?= $_SERVER['SCRIPT_NAME'] ?>">
                         <button type = "submit">Ajouter</button>
@@ -75,7 +75,7 @@
                                 <?php if ($adminConnected): ?>
                                     <td>
                                         <form name="modifyMovieShowtime" action="index.php" method="GET">
-                                            <input type="hidden" name="action" value="editShowTime"/>
+                                            <input type="hidden" name="action" value="editShowtime"/>
                                             <input type="hidden" name="cinemaID" value="<?= $cinema['CINEMAID'] ?>"/>
                                             <input type="hidden" name="filmID" value="<?= $filmID ?>"/>
                                             <input type="hidden" name="heureDebut" value="<?= $seance['HEUREDEBUT'] ?>"/>
@@ -104,7 +104,8 @@
                             ?>
                             <tr class="new">
                                 <td colspan="6">
-                                    <form action="editShowtime.php" method="get">
+                                    <form action="index.php" method="get">
+                                        <input name="action" type="hidden" value="editShowtime">
                                         <input name="cinemaID" type="hidden" value="<?= $cinema['CINEMAID'] ?>">
                                         <input name="filmID" type="hidden" value="<?= $filmID ?>">
                                         <input name="from" type="hidden" value="<?= $_SERVER['SCRIPT_NAME'] ?>">
